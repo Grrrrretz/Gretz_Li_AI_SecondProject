@@ -14,7 +14,9 @@ namespace NodeCanvas.Tasks.Actions {
 
 		public BBParameter<GameObject> target;
 
-		public float range;
+        public float speed;
+
+        public float range;
         //Use for initialization. This is called only once in the lifetime of the task.
         //Return null if init was successfull. Return an error string otherwise
         protected override string OnInit() {
@@ -44,7 +46,7 @@ namespace NodeCanvas.Tasks.Actions {
 
             if (Distance >= range)
             {
-                agent.transform.position = Vector3.MoveTowards(position, locatoin.value.position, 1f * Time.deltaTime);
+                agent.transform.position = Vector3.MoveTowards(position, locatoin.value.position, speed * Time.deltaTime);
 
                 if (position == locatoin.value.position)
                 {
