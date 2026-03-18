@@ -17,11 +17,7 @@ namespace NodeCanvas.Tasks.Conditions {
         //Return null if init was successfull. Return an error string otherwise
         protected override string OnInit(){
 
-			ASize = A.value.localScale.x * A.value.localScale.y * A.value.localScale.z;
-
-			BSize = B.value.localScale.x * B.value.localScale.y * B.value.localScale.z;
-
-
+			
 
 
             return null;
@@ -29,11 +25,15 @@ namespace NodeCanvas.Tasks.Conditions {
 
 		//Called whenever the condition gets enabled.
 		protected override void OnEnable() {
-			
-		}
+            ASize = A.value.localScale.x * A.value.localScale.y * A.value.localScale.z;
 
-		//Called whenever the condition gets disabled.
-		protected override void OnDisable() {
+            BSize = B.value.localScale.x * B.value.localScale.y * B.value.localScale.z;
+
+
+        }
+
+        //Called whenever the condition gets disabled.
+        protected override void OnDisable() {
 			
 		}
 
