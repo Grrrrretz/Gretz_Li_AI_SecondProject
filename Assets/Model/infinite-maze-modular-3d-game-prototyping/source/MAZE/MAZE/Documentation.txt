@@ -1,0 +1,5 @@
+Infinite Maze
+For Assets download the below from the Asset Store.
+1. Third Person Controller : 	https://assetstore.unity.com/packages/essentials/starter-assets-thirdperson-updates-in-new-charactercontroller-pa-196526
+2. Pro Builder : 		https://docs.unity3d.com/Packages/com.unity.probuilder@6.0/manual/index.html
+				https://docs.unity3d.com/Packages/com.unity.probuilder@6.0/manual/installing.html
