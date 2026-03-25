@@ -29,7 +29,7 @@ public class S_playercontroler : MonoBehaviour
 
             if (Physics.Raycast(mouseClickRay, out mouseClickHit, 1000F, groundlayermask))
             {
-                
+                Debug.Log("Test");
                 navAgent.SetDestination(mouseClickHit.point);
             }
         }
