@@ -12,7 +12,20 @@ public class S_Playermovement : MonoBehaviour
     private float xRotation = 0f;
     private Vector3 velocity;
 
-    void Start()
+    private float CDtimmer = 0f;
+    public float SprintCD;
+
+    public float SprintDuration;
+
+
+    private bool Sprinted = false;
+    private bool Sprinting = false;
+
+    public Camera cam;
+
+
+
+    public void Start()
     {
         controller = GetComponent<CharacterController>();
 
@@ -20,13 +33,47 @@ public class S_Playermovement : MonoBehaviour
         Cursor.visible = false;
     }
 
-    void Update()
+    public void Update()
     {
         MouseLook();
         Move();
+
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            Sprinted = true;
+            Sprinting = true;
+
+
+        }
+
+        if (Sprinted == true)
+        {
+            CDtimmer += Time.deltaTime;
+            if (CDtimmer > SprintCD)
+            {
+                Sprinted = false;
+                CDtimmer = 0f;
+            }
+
+        }
+        if (Sprinting == true)
+        {
+            if (CDtimmer < SprintDuration)
+            {
+                moveSpeed = 10f;
+                cam.fieldOfView = Mathf.Lerp(90f,75f,Time.deltaTime);
+
+            }
+            else
+            {
+                moveSpeed = 5f;
+                Sprinting = false;
+                cam.fieldOfView = Mathf.Lerp(75f, 90f,Time.deltaTime);
+            }
+        }
     }
 
-    void MouseLook()
+    public void MouseLook()
     {
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
@@ -38,7 +85,7 @@ public class S_Playermovement : MonoBehaviour
         transform.Rotate(Vector3.up * mouseX);
     }
 
-    void Move()
+    public void Move()
     {
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");   
@@ -54,4 +101,7 @@ public class S_Playermovement : MonoBehaviour
         velocity.y += g * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
     }
+
+      
+
 }
