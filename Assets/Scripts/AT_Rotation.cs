@@ -31,7 +31,7 @@ namespace NodeCanvas.Tasks.Actions {
 
             float relativeY = Mathf.DeltaAngle(startY, currentY);
 
-            if (!turningRight)
+            if (turningRight == false)
             {
                 target.value.Rotate(0, -rotateSpeed.value * Time.deltaTime, 0);
 
