@@ -4,6 +4,9 @@ public class S_dor : MonoBehaviour
 {
     public GameObject safepos;
 
+    public GameObject player;
+    public GameObject door;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -16,11 +19,19 @@ public class S_dor : MonoBehaviour
 
     }
 
-    void OnTriggerEnter(Collider other)
+
+    private void OnTriggerEnter(Collider other)
     {
 
 
-        // ÏÈ´«ËÍÎ»ÖÃ
-        other.transform.position = safepos.transform.position;
+        CharacterController cc = other.GetComponent<CharacterController>();
+
+            cc.enabled = false;
+            other.transform.position = safepos.transform.position;
+            cc.enabled = true;
+
     }
+
+
+
 }
