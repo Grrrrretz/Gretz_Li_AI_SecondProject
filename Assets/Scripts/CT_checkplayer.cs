@@ -27,7 +27,7 @@ namespace NodeCanvas.Tasks.Conditions {
         }
         protected override bool OnCheck()
         {
-            Debug.Log(1);
+            
             Transform lightTrans = sLight.value.transform;
 
             Vector3 targetPosition = player.value.position + Vector3.up;

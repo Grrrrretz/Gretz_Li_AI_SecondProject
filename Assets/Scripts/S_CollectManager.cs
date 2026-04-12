@@ -6,6 +6,7 @@ public class S_CollectManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public int nowtCollect = 0;
     public int totalCollect = 0;
+    public GameObject door;
 
     public TextMeshProUGUI collectText;
 
@@ -16,6 +17,16 @@ public class S_CollectManager : MonoBehaviour
 
         nowtCollect = 0;
         UpdateUI();
+
+    }
+
+    void Update()
+    {
+
+        if (nowtCollect >= totalCollect)
+        {
+            door.SetActive(true);
+        }
 
     }
 
